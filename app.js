@@ -1,6 +1,6 @@
 
 const chalk = require('chalk');
-const getNotes = require('./notes');
+const notes = require('./notes');//exportamo 2 property u objekt notes
 const yargs = require('yargs');
 
 //customize yargs
@@ -24,16 +24,24 @@ yargs.command({
             type: 'string'
         }
     },
+    //funckija koja se izvršava na add commandu
     handler: function(argv){
-        console.log('Title: '+argv.title+'\nBody: '+argv.body)
+        notes.addNote(argv.title, argv.body)
     }
 });
 //create remove command
 yargs.command({
     command: 'remove',
     describe: 'removes a note',
-    handler: function(){
-        console.log('removing note...')
+    builder: {
+        title: {
+            describe : 'Note title to be removed',
+            demandOption: true,
+            type: 'string'
+        }
+    },
+    handler: function(argv){
+        notes.removeNote(argv.title);
     }
 });
 //create list command
