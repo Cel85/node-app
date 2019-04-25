@@ -1,7 +1,7 @@
 const fs = require('fs');
 const chalk = require('chalk');
 
-const getNotes = function (){
+const getNotes = function () {
     return "Your notes....";
 }
 
@@ -19,36 +19,35 @@ const addNote = function (title, body) {
         });
 
         saveNotes(notes);
-        console.log("New note added....")
+        console.log(chalk.green.inverse("New note added...."))
     } else {
-        console.log("Note title taken")
+        console.log(chalk.red.inverse("Note title taken"))
     }
 
 }
 
-const removeNote = function (title){
+const removeNote = function (title) {
     const notes = loadNotes();
     //removes a note
-    const remainingNotes = notes.filter(function(note){
+    const remainingNotes = notes.filter(function (note) {
         return note.title !== title
     });
-    
-    if(remainingNotes.length !== notes.length){//ako je nešta pronašao, tj arrayi se razlikuju
+
+    if (remainingNotes.length !== notes.length) { //ako je nešta pronašao, tj arrayi se razlikuju
         saveNotes(remainingNotes);
         console.log(chalk.bgGreen("Removing note with title: " + title))
-    }
-    else {
+    } else {
         console.log(chalk.bgRed("There is no note with name of " + title))
     }
-  
+
 }
 
-const saveNotes = function(notes){
+const saveNotes = function (notes) {
     const dataJSON = JSON.stringify(notes);
     fs.writeFileSync('notes.json', dataJSON);
 }
 
-const loadNotes = function(){
+const loadNotes = function () {
     //stavljamo u try-catch u slučaju da file ne postoji
     try {
         const dataBuffer = fs.readFileSync('notes.json');
