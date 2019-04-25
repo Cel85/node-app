@@ -1,4 +1,5 @@
 const fs = require('fs');
+const chalk = require('chalk');
 
 const getNotes = function (){
     return "Your notes....";
@@ -29,15 +30,15 @@ const removeNote = function (title){
     const notes = loadNotes();
     //removes a note
     const remainingNotes = notes.filter(function(note){
-        return note.title != title
+        return note.title !== title
     });
     
     if(remainingNotes.length !== notes.length){//ako je nešta pronašao, tj arrayi se razlikuju
         saveNotes(remainingNotes);
-        console.log("Removing note with title: " + title)
+        console.log(chalk.bgGreen("Removing note with title: " + title))
     }
     else {
-        console.log("There is no note with name of " + title)
+        console.log(chalk.bgRed("There is no note with name of " + title))
     }
   
 }
