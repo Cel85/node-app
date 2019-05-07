@@ -6,7 +6,6 @@ const yargs = require('yargs');
 
 yargs.version('1.1.0.');
 
-
 //create add command
 yargs.command({
     command: 'add',
@@ -48,16 +47,23 @@ yargs.command({
     command: 'list',
     describe: 'List all notes',
     handler() {
-        console.log("Listing notes...");
+        notes.listNotes()
     }
 });
 //create read command
 yargs.command({
     command: 'read',
     describe: 'Reads notes',
-    handler() {
-        console.log("Reading notes...");
+    builder: {
+        title: {
+            describe: 'Read note with that title',
+            demandOption: true,
+            type: 'string'
+        }
+    },
+    handler(argv) {
+        notes.readNote(argv.title);
     }
 });
+
 yargs.parse();
-//console.log(yargs.argv);
