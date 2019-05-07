@@ -1,6 +1,5 @@
-
 const chalk = require('chalk');
-const notes = require('./notes');//exportamo 2 property u objekt notes
+const notes = require('./notes'); //exportamo 2 property u objekt notes
 const yargs = require('yargs');
 
 //customize yargs
@@ -25,7 +24,7 @@ yargs.command({
         }
     },
     //funckija koja se izvršava na add commandu
-    handler: function(argv){
+    handler(argv) {
         notes.addNote(argv.title, argv.body)
     }
 });
@@ -35,12 +34,12 @@ yargs.command({
     describe: 'removes a note',
     builder: {
         title: {
-            describe : 'Note title to be removed',
+            describe: 'Note title to be removed',
             demandOption: true,
             type: 'string'
         }
     },
-    handler: function(argv){
+    handler(argv) {
         notes.removeNote(argv.title);
     }
 });
@@ -48,7 +47,7 @@ yargs.command({
 yargs.command({
     command: 'list',
     describe: 'List all notes',
-    handler: function(){
+    handler() {
         console.log("Listing notes...");
     }
 });
@@ -56,7 +55,7 @@ yargs.command({
 yargs.command({
     command: 'read',
     describe: 'Reads notes',
-    handler: function(){
+    handler() {
         console.log("Reading notes...");
     }
 });
