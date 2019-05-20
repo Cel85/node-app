@@ -1,13 +1,1 @@
-[{
-    "title": "neki naslov broj 2",
-    "body": "ovo je neki drugi body"
-}, {
-    "title": "neki naslov broj 4",
-    "body": "ovo je neki drugi body"
-}, {
-    "title": "neki naslov",
-    "body": "neki body lol"
-}, {
-    "title": "dobar dan",
-    "body": "baš je dobar dan"
-}]
+[{"title":"neki naslov broj 2","body":"ovo je neki drugi body"},{"title":"neki naslov broj 4","body":"ovo je neki drugi body"},{"title":"neki naslov","body":"neki body lol"},{"title":"dobar dan","body":"baš je dobar dan"},{"title":"marko je car","body":"a ne nie"}]

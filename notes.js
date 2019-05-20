@@ -2,6 +2,7 @@ const fs = require('fs');
 const chalk = require('chalk');
 
 const addNote = (title, body) => {
+
     const notes = loadNotes();
 
     const duplicateNote = notes.find((note) => note.title === title);
@@ -23,6 +24,7 @@ const addNote = (title, body) => {
 const removeNote = (title) => {
     const notes = loadNotes();
     //removes a note
+
     const remainingNotes = notes.filter((note) => note.title !== title);
 
     if (remainingNotes.length !== notes.length) { //ako je nešta pronašao, tj arrayi se razlikuju
