@@ -27,12 +27,12 @@ request({
     url: geocodeUrl,
     json: true
 }, (error, response, body) => {
-    const longitude = body.features[0].center[0];
-    const latitude = body.features[0].center[1];
 
     if (error) {
         console.log("Unable to connect");
     }
+    const longitude = body.features[0].center[0];
+    const latitude = body.features[0].center[1];
     console.log(longitude + ',' + latitude);
 
 });
